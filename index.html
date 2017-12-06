@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Gettin' GIPHY with It</title>
+    <!-- Bootswatch Styling for Improving the Aesthetics -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/flatly/bootstrap.min.css">
+    <!-- Font Awesome CSS Icons (For cool glyphicons) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- Style to fix the issue of text extending past panel length -->
+    <style>
+    .panel-body a {
+        word-break: break-all;
+    }
+    </style>
+</head>
+
+<body>
+    <!-- Main Bootstrap Search -->
+    <div class="container">
+
+        <!-- Jumbotron for Title and Buttons -->
+        <div class="jumbotron" style="background-color: #FF4500 ; color: white;">
+            <h1 class="text-center"><strong><i class="fa fa-picture-o"></i> Gettin' GIPHY with It</strong></h1>
+        </div>
+        <!-- End Jumbotron -->
+
+
+        <div class="well">
+
+            <!-- this is where we'll create our buttons -->
+            <div class="row">
+                <div class="col-md-4">
+                    <div id="movie-buttons" class='btn-group-vertical'></div>
+                </div>
+                <div class="col-md-8">
+                    <form role="form">
+                        <div class="form-group">
+                            <label for="name">Add a movie: </label>
+                            <input type="text" id="new-movie" class="form-control">
+                            <button class="btn btn-default btn-small" type="submit" id="add-movie">Submit</button>
+
+                    <h3>Click to animate!</h3>
+                </div>
+            </div>
+
+                <!-- This is where the images will go -->
+            <div id="gallery"></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <!-- Line Break followed by closing -->
+                <hr>
+                <h5 class="text-center"><small>With proper maintenance, handling, storage, and urging, Plumbus will provide you with a lifetime of better living and happiness.</small></h5>
+            </div>
+        </div>
+    </div>
+    <!-- jQuery JS -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Code to the JavaScript File -->
+    <script src="javascript.js"></script>
+</body>
+
+</html>
