@@ -26,11 +26,8 @@ function renderButtons() {
 // do it at page load
 renderButtons();
 
-
-
 // get those pictures!
-$('.movie-button').on('click', function() {
-	console.log('button clicked!')
+function displayGifs() {
     var movie = $(this).data("movie");
     var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=" + giphyKey + "&q=" + movie + "&limit=10&offset=0&rating=R&lang=en";
     $.ajax({
@@ -54,30 +51,35 @@ $('.movie-button').on('click', function() {
                 'src': results[index].images.fixed_height_still.url
             });
             $('#gallery').append(movieImg);
+            var movieRating = $('<p>');
+            movieRating.text('Rated ' + results[index].rating);
+            $('#gallery').append(movieRating);
         })
 
-    	// animation time!
-    	$('.gallery-image').on('click', function() {
-    	    var state = $(this).attr("data-state");
-    	    if (state === 'still') {
-    	        $(this).attr("src", $(this).attr("data-animate"));
-    	        $(this).attr("data-state", "animate");
-    	    } else {
-    	        $(this).attr("src", $(this).attr("data-still"));
-    	        $(this).attr("data-state", "still");
-    	    }
-    })
+        // animation time!
+        $('.gallery-image').on('click', function() {
+            var state = $(this).attr("data-state");
+            if (state === 'still') {
+                $(this).attr("src", $(this).attr("data-animate"));
+                $(this).attr("data-state", "animate");
+            } else {
+                $(this).attr("src", $(this).attr("data-still"));
+                $(this).attr("data-state", "still");
+            }
+        })
 
     })
 
-}) // movie button click listener
+} // end movie button click listener
+
 
 // click listener for adding movies
-$("#add-movie").on("click", function() {
-    event.preventDefault();
+$('#add-movie').on('click', function(event) {
+    console.log('new movie!')
     var newMovie = $('#new-movie').val().trim();
     movies.push(newMovie);
     renderButtons();
 })
 
+$(document).on('click', '.movie-button', displayGifs);
 // https://api.giphy.com/v1/gifs/search?api_key=j6KOzFKoAK2TPWLS41yFQyfbevX6iUMW&q=Jack Torrence&limit=10&offset=0&rating=R&lang=en
